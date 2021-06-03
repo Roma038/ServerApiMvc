@@ -1,0 +1,64 @@
+﻿@model BankServer.Models.Card
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TransferMoney</title>
+</head>
+<body>
+    <div>
+        <form action="/Home/TransferMoney" method="post">
+            <input type="hidden" name="id" value="@Model.CardId"/>
+            <table>
+                <tr>
+                    <td><label for="FOwner">Owner</label></td>
+                    <td><input type="text" name="FOwner" value="@Model.Owner" readonly /></td>
+                    
+                </tr>
+                <tr>
+                    <td><label for="FNumber">Number</label></td>
+                    <td><input type="text" name="FNumber" value="@Model.Number" readonly /></td>
+                    <td><label>To</label></td>
+                    <td><input type="text" name="Number" required/></td>
+                </tr>
+                <tr>
+                    <td><label for="FCV">CV</label></td>
+                    <td><input type="text" name="FCV" value="@Model.CV" readonly /></td>
+                    <td><label>To</label></td>
+                    <td><input type="text" name="CV" required/></td>
+                </tr>
+                <tr>
+                    <td><label for="FDate">Date</label></td>
+                    <td><input type="text" name="FDate" value="@Model.Date" readonly /></td>
+                    <td><label>To</label></td>
+                    <td><input type="text" name="Date" required/></td>
+                </tr>
+                <tr>
+                    <td><label for="Balance"></label></td>
+                    <td><input type="text" name="Balance" value="@Model.Balance" readonly/></td>
+                </tr>
+                <tr>
+                    <td><label for="money">Money</label></td>
+                    <td><input type="text" name="money"/></td>
+                    <td>
+                        <select name="Currency">
+                            <option value="AZN">@ViewBag.AZN</option>
+                            <option value="USD">@ViewBag.USD</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td><td></td><td><input type="submit" value="Transfer"/></td>
+                </tr>
+            </table>
+
+        </form>
+    </div>
+</body>
+</html>

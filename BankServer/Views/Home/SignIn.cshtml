@@ -1,0 +1,26 @@
+﻿@model BankServer.Models.Owner
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SignIn</title>
+</head>
+<body>
+    <div>
+        <form action="/Home/SignIn" method="post">
+            <label for="Name">Name</label>
+            <textarea cols="20" rows="1" name="Name" required></textarea>
+            <label for="Surname">Surname</label>
+            <textarea cols="20" rows="1" name="Surname" required></textarea>
+            <label for="Email">Email</label>
+            <textarea cols="40" rows="1" name="Email" required></textarea>
+            <input type="submit" value="Sign in" name="Registrate" />
+        </form>
+    </div>
+</body>
+</html>

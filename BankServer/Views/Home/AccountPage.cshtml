@@ -1,0 +1,100 @@
+﻿@model BankServer.Models.Account
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AccountPage</title>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <td><label for="Username">Username</label></td>
+                <td><input type="text" value="@ViewBag.Username" name="Username" readonly /></td>
+            </tr>
+            <tr>
+                <td><label for="Name">Name</label></td>
+                <td><input type="text" value="@ViewBag.Name" name="Name" readonly /></td>
+                <td></td>
+                <td><label for="Balance">Balance</label></td>
+                <td><input type="text" value="@Model.OverAllBalance" name="Balance" readonly /></td>
+            </tr>
+            <tr>
+                <td><label for="Surname">Surname</label></td>
+                <td><input type="text" value="@ViewBag.Surname" name="Surname" readonly /></td>
+                <td></td>
+                <td><label for="Currency">Currency</label></td>
+                <td><input type="text" value="@Model.Currency" name="Currency" readonly /></td>
+            </tr>
+            <tr>
+                <td><label for="Email">Email</label></td>
+                <td><input type="text" value="@ViewBag.Email" name="Email" readonly /></td>
+            </tr>
+            <tr>
+                <td><label for="OwnerId">Owner Id</label></td>
+                <td><input type="text" value="@ViewBag.OwnerId" name="OwnerId" readonly /></td>
+            </tr>
+            @if (ViewBag.Cards != null)
+            {
+                foreach (var item in Model.Cards)
+                {
+                    <tr>
+                        <td><label for="Number">Number</label></td>
+                        <td><input type="text" value="@item.Number" name="Number" readonly /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="CV">CV</label></td>
+                        <td><input type="text" value="@item.CV" name="CV" readonly /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Balance">Balance</label></td>
+                        <td><input type="text" name="Balance" value="@item.Balance" readonly /></td>
+                    </tr>
+                    <tr>
+                        <td><label for="Date">Date</label></td>
+                        <td><input type="text" value="@item.Date" name="Date" readonly /></td>
+                        <td>
+                            <input type="button" name="transfer" value="Transfer money"
+                                   onclick="location.href='@Url.Action("TransferMoney","Home", new { id = item.CardId})'" />
+                        </td>
+                        <td>
+                            <input type="button" name="Delete" value="Delete card"
+                                   onclick="location.href='@Url.Action("DeleteCard", "Home", new { id = item.CardId})'" />
+                        </td>
+                    </tr>
+
+                }
+            }
+
+            <tr>
+                
+                <td>
+                    <input type="button" name="AddCard" value="Add card"
+                           onclick="location.href='@Url.Action("AddCard", "Home", new { id = Model.AccountId})'" />
+                </td>
+                <td>
+                    <input type="button" name="ToHomePage" value="To home page"
+                           onclick="location.href='@Url.Action("HomePage", "Home")'" />
+                </td>
+                <td>
+                    <input type="button" name="DeleteAccount" value="Delete account"
+                           onclick="location.href='@Url.Action("DeleteAccount", "Home", new { id = Model.AccountId})'" />
+                </td>
+                <td>
+                    <input type="button" name="Signout" value="Sign out"
+                           onclick="location.href='@Url.Action("SignOut", "Home", new { id = Model.AccountId})'"/>
+                </td>
+            </tr>
+            <tr>
+                
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

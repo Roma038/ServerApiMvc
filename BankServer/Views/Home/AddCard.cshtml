@@ -1,0 +1,56 @@
+﻿@model BankServer.Models.Account
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddCard</title>
+</head>
+<body>
+    <div>
+        <form action="/Home/AddCard" method="post">
+            <table>
+                <tr>
+                    <td><label for="Owner">Owner</label></td>
+                    <td><input type="text" name="Owner" required/></td>
+                </tr>
+                <tr>
+                    <td><label for="Number">Number</label></td>
+                    <td><input type="text" name="Number" required/></td>
+                </tr>
+                <tr>
+                    <td><label for="CV">CV</label></td>
+                    <td><input type="text" name="CV" required/></td>
+                </tr>
+                <tr>
+                    <td><label for="Date">Date</label></td>
+                    <td><input type="text" name="Date" required/></td>
+                </tr>
+                <tr>
+                    <td><label for="Balance">Balance</label></td>
+                    <td><input type="text" name="Balance" /></td>
+                </tr>
+                <tr>
+                    <td><label for="AccountId">AccountId</label></td>
+                    <td><input type="text" name="AccountId" readonly value="@Model.AccountId" /></td>
+                    <td><input type="submit" value="Add" /></td>
+                </tr>
+            </table>
+            <!--<input type="hidden" name="OwnerId" value="@Model.OwnerId" />
+    <input type="hidden" name="Balance" value="@Model.OverAllBalance" />
+    <input type="hidden" name="Owner" value="@Model.Owner" />
+    <input type="hidden" name="Currency" value="@Model.Currency" />
+    <input type="hidden" name="ConfirmCode" value="@Model.ConfirmCode" />
+    <input type="hidden" name="Username" value="@Model.Username" />
+    <input type="hidden" name="Password" value="@Model.Password" />
+    <input type="hidden" name="ConfirmPassword" value="@Model.ConfirmPassword" />
+    <input type="hidden" name="Cards" value="@Model.Cards" />-->
+        </form>
+    </div>
+</body>
+</html>

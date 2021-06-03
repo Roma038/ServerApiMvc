@@ -1,0 +1,31 @@
+﻿@model BankServer.Models.Account
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetConfirmCode</title>
+</head>
+<body>
+    <div>
+        <form action="/Home/CreateAccount" method="post">
+            <input type="hidden" name="AccountId" value="@Model.AccountId" />
+            <input type="hidden" name="OwnerId" value="@Model.OwnerId" />
+            <input type="hidden" name="Balance" value="@Model.OverAllBalance" />
+            <input type="hidden" name="Owner" value="@Model.Owner" />
+            <input type="hidden" name="Currency" value="@Model.Currency" />
+            <input type="hidden" name="ConfirmCode" value="@Model.ConfirmCode" />
+            <input type="hidden" name="Username" value="@Model.Username" />
+            <input type="hidden" name="Password" value="@Model.Password" />
+            <input type="hidden" name="ConfirmPassword" value="@Model.ConfirmPassword" />
+            <!--<input type="hidden" name="Cards" value="@Model.Cards"/>-->
+            <input type="number" name="Code" />
+            <input type="submit" value="Confirm" />
+        </form>
+    </div>
+</body>
+</html>
